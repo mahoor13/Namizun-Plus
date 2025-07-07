@@ -1,6 +1,6 @@
 # NAMIZUN PLUS
 
-This project is used to remove the limitation of asymmetric ratio for uploading and downloading Iranian servers
+This project is used to remove the limitation of asymmetric ratio for uploading and downloading Iranian servers. This repository forked from PacketAlchemist/Namizun-Plus to dockerize and add some features like tcp upload and download.
 
 ## One line installation command:
 
