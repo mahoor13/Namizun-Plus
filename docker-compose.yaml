@@ -1,0 +1,32 @@
+services:
+  namizun:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: namizun
+    restart: unless-stopped
+    environment:
+      - PYTHONUNBUFFERED=1
+    # ports:
+    #  - "6379:6379"  # Redis port if needed externally
+    # volumes:
+    #  - ./:/var/www/namizun  # Mount local directory for development
+    #  - ./data:/var/lib/redis  # Uncomment to persist Redis data
+    # cap_add:
+    #  - NET_ADMIN  # Only add if network manipulation privileges are needed
+    deploy:
+      resources:
+        limits:
+          cpus: 2
+          memory: 500M
+    logging:
+    #   driver: json-file
+      options:
+        max-size: 5m
+        max-file: 2
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+networks: {}
